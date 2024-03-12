@@ -122,7 +122,7 @@ const PaidUser = () => {
 
                                 <div className='text-white bg-richblack-800 px-5 py-2 rounded-md flex justify-between items-center' key={index}>
                                     <div className='flex gap-2 items-center'>
-                                        <img src={user.image} className='rounded-full' alt='profileImageUser' width={50} height={50}/>
+                                        <img src={user.image} className='rounded-full object-cover' alt='profileImageUser' width={50} height={50}/>
                                         <p>{user.name}</p>
                                     </div>
                                     <div className='flex gap-1 items-center'>

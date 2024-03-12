@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Template = ({title, desc1, desc2, image, formtype}) => {
   return (
-    <div className='flex justify-evenly mt-10 items-center w-11/12 mx-auto sm:h-[70vh] md:h-[80vh]'>
+    <div className='flex justify-evenly mt-28 md:mt-10 items-center w-11/12 mx-auto '>
       
         <div className='w-[100%] md:w-[500px]'>
             <h1 className='text-[2rem] font-bold leading-10 text-richblack-5'>{title}</h1>
