@@ -19,6 +19,7 @@ const {
 // SEND OTP CALL
 export const sendotp = (email, navigate) => {
     return (dispatch) => {
+        const toastId = toast.loading("Loading...");
         dispatch(setLoading(true))
         try{
             const response = apiConnector("POST", SENDOTP_API, {
@@ -35,6 +36,7 @@ export const sendotp = (email, navigate) => {
             toast.error("Could not send Otp")
         }
         dispatch(setLoading(false))
+        toast.dismiss(toastId);
     }
 }
 
