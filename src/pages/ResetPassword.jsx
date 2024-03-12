@@ -28,7 +28,7 @@ const ResetPassword = () => {
     }
 
   return (
-    <div className='text-richblack-5 flex flex-col place-items-center'>
+    <div className='text-richblack-5 flex flex-col place-items-center w-11/12 mx-auto '>
       {
         loading ? (
             <div>
@@ -36,7 +36,7 @@ const ResetPassword = () => {
             </div>
         ) : 
         (
-            <div className='w-[30%] flex flex-col gap-3 lg:mt-[140px]'>
+            <div className='w-[100%] md:w-[60%] lg:w-[30%] flex flex-col gap-3 mt-[140px]'>
                 <h1 className='text-4xl font-semibold'>
                     {
                         !resetPassword ? "Choose New Password" : "Reset Complete!"
