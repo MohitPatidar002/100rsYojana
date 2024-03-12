@@ -21,7 +21,7 @@ const Footer = () => {
       token !== null && 
     
     <div className='w-full bg-richblack-900 border-t-[1px] border-richblack-700 md:hidden items-center justify-center text-white fixed bottom-0 z-20'>
-      <div className='w-11/12 mx-auto h-14 flex gap-3 items-center justify-evenly'>
+      <div className='w-11/12 mx-auto h-16 flex gap-3 items-center justify-evenly'>
         <Link to="/home" className='flex flex-col text-center items-center'>
             <MdHome className='text-3xl'/>
             <p className='text-sm font-extralight'>Home</p>

@@ -21,7 +21,7 @@ import Error from './pages/Error.jsx'
 
 function App() {
   return (
-    <div className="w-[100%] min-h-screen flex flex-col font-inter bg-richblack-900 overflow-x-hidden">
+    <div className="w-[100%] h-[100vh] flex flex-col font-inter bg-richblack-900 overflow-x-hidden">
 
       <Navbar/>
       

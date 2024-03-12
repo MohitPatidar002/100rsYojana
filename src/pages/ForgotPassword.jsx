@@ -27,7 +27,7 @@ const ForgotPassword = () => {
             </div>
         ) : 
         (
-            <div className='w-[100%] md:w-[60%] lg:w-[30%] flex flex-col gap-3 mt-[140px]'>
+            <div className='w-[100%] md:w-[60%] lg:w-[30%] flex flex-col gap-3 mt-[150px] md:mt-[140px]'>
                 <h1 className='text-4xl font-semibold'>
                     {
                         !emailSent ? "Reset Your Password" : "Check Your Email"
