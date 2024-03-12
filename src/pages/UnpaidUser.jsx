@@ -45,7 +45,10 @@ const PaidUser = () => {
 
                                 <div className='text-white bg-richblack-800 px-5 py-2 rounded-md flex justify-between items-center' key={index}>
                                     <div className='flex gap-2 items-center'>
-                                        <img src={user.image} className='rounded-full object-cover' alt='profileImageUser' width={50} height={50}/>
+                                        <div className='aspect-w-1 aspect-h-1'>
+                                            <img src={user.image} className='rounded-full object-cover w-[50px] h-[50px]' alt='profileImageUser' />
+                                        </div>
+                                        
                                         <p>{user.name}</p>
                                     </div>
                                     <div className='flex gap-1 items-center'>
