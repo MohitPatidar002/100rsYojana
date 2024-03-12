@@ -1,0 +1,30 @@
+/* write your css here */
+.spinner {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: radial-gradient(farthest-side,white 94%,#0000) top/9px 9px no-repeat,
+           conic-gradient(#0000 30%,white);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+    animation: spinner-c7wet2 1s infinite linear;
+ }
+ 
+ @keyframes spinner-c7wet2 {
+    100% {
+       transform: rotate(1turn);
+    }
+ }
+
+
+ .background{
+    background: linear-gradient(180deg,  #000814,#fff0)
+}
+
+.backgroundBelow{
+    background: linear-gradient(0deg, #000814,#fff0)
+}
+
+.bg-transparent{
+   background-color: transparent;
+}
+
