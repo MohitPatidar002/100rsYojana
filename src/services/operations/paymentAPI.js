@@ -116,8 +116,8 @@ async function verifyPayment(bodyData, token){
     const toastId = toast.loading("Verifying Payment...");
     
     try{
-        console.log("bodyData :", bodyData);
-        console.log("token in verify payment :", token)
+        // console.log("bodyData :", bodyData);
+        // console.log("token in verify payment :", token)
         const response = await apiConnector("POST", VERIFY_PAYMENT_API, bodyData,
         {
             Authorization: `Bearer ${token}`,

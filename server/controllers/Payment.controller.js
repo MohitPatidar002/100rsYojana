@@ -105,14 +105,14 @@ exports.verifyPayment = async (req, res) => {
             // console.log("payment details new", payment)
 
             const updated = await Payment.findByIdAndUpdate(
-              paymentDetail._id,
+              payment._id,
             {
                 $set: {
-                paymentStatus,
-                totalMonths,
-                totalYears,
-                totalMoney,
-                },
+                    paymentStatus: paymentStatus,
+                    totalMonths: totalMonths,
+                    totalYears: totalYears,
+                    totalMoney: totalMoney,
+                }
             },
             { new: true }
             );
