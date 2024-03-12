@@ -29,7 +29,7 @@ app.use(fileUpload({
     tempFileDir : '/tmp'
 }))
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://100rsyojana.vercel.app",
     credentials: true
 }))
 
