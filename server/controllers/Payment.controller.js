@@ -101,8 +101,8 @@ exports.verifyPayment = async (req, res) => {
                 totalYears = payment.totalYears + 1;
             }
 
-            // console.log("total money", totalMoney)
-            // console.log("payment details new", payment)
+            console.log("total money", totalMoney)
+            console.log("payment details new", payment)
 
             const updated = await Payment.findByIdAndUpdate(
               paymentDetail,
