@@ -26,7 +26,7 @@ export const sendotp = (email, navigate) => {
                 email
             })
 
-            console.log("response", response)
+            // console.log("response", response)
 
             toast.success("Otp sent successfully")
             navigate("/verify-email")
@@ -49,7 +49,7 @@ export const signup = (name, email, password, contactNumber, otp, navigate) => {
                 name, email, password, contactNumber, otp
             })
 
-            console.log("Signup response : ", response)
+            // console.log("Signup response : ", response)
 
             if(!response.data.success){
                 throw new Error(response.data.message);
