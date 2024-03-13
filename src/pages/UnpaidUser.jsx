@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { apiConnector } from '../services/apiConnector';
 import { getAllUser } from '../services/apis';
 import { IoClose } from "react-icons/io5";
+import Spinner from './Spinner'
+import { useSelector } from 'react-redux';
 
 
 const PaidUser = () => {
 
     const [unPaidUser, setUnpaidUser] = useState([]);
+    const {loading} = useSelector((state) => state.auth)
 
     async function fetchData(){
         try{
@@ -36,54 +39,64 @@ const PaidUser = () => {
 
             <h1 className='text-3xl text-richblack-5 font-semibold mb-10'>Unpaid Member</h1>
 
-            <div className='flex flex-col gap-3'>
-                {
-                    unPaidUser.length > 0 
-                    ? (
-                        unPaidUser.map((user, index) =>  {
-                            return (
+            {
+                loading ? (
+                    <div>
+                        <Spinner/>
+                    </div>
+                ) : 
+                (
+                <div className='flex flex-col gap-3'>
+                    {
+                        unPaidUser.length > 0 
+                        ? (
+                            unPaidUser.map((user, index) =>  {
+                                return (
 
-                                <div className='text-white bg-richblack-800 px-5 py-2 rounded-md flex justify-between items-center' key={index}>
-                                    <div className='flex gap-2 items-center'>
-                                        <div className='aspect-w-1 aspect-h-1'>
-                                            <img src={user.image} className='rounded-full object-cover w-[50px] h-[50px]' alt='profileImageUser' />
+                                    <div className='text-white bg-richblack-800 px-5 py-2 rounded-md flex justify-between items-center' key={index}>
+                                        <div className='flex gap-2 items-center'>
+                                            <div className='aspect-w-1 aspect-h-1'>
+                                                <img src={user.image} className='rounded-full object-cover w-[50px] h-[50px]' alt='profileImageUser' />
+                                            </div>
+                                            
+                                            <p>{user.name}</p>
                                         </div>
-                                        
-                                        <p>{user.name}</p>
+                                        <div className='flex gap-1 items-center'>
+                                            <p>No paid</p>
+                                            <IoClose className=' bg-red font-bold text-white text-lg rounded-sm'/>
+                                        </div>
                                     </div>
-                                    <div className='flex gap-1 items-center'>
-                                        <p>No paid</p>
-                                        <IoClose className=' bg-red font-bold text-white text-lg rounded-sm'/>
-                                    </div>
-                                </div>
 
 
-                                /* <div className='bg-richblack-800 px-5 py-3 rounded-md  text-richblack-25 flex justify-between items-center gap-5' 
-                                key={index}>
-                                
-                                    <div className='flex items-center  gap-2 md:gap-4'>
-                                        <img src={user.image} className='w-[30%] aspect-square 
-                                        rounded-full' alt='profileImage' loading='lazy'/>
-                                        <p>{user.name}</p>
-                                    </div>
-                                    <div className='flex gap-1 justify-center items-center'>
-                                        <p>No paid</p>
-                                        <p>
-                                            <RxCross2 className=' bg-red text-white '/>
-                                        </p>
-                                        
-                                    </div> 
-                                
-                                </div> */   
+                                    /* <div className='bg-richblack-800 px-5 py-3 rounded-md  text-richblack-25 flex justify-between items-center gap-5' 
+                                    key={index}>
+                                    
+                                        <div className='flex items-center  gap-2 md:gap-4'>
+                                            <img src={user.image} className='w-[30%] aspect-square 
+                                            rounded-full' alt='profileImage' loading='lazy'/>
+                                            <p>{user.name}</p>
+                                        </div>
+                                        <div className='flex gap-1 justify-center items-center'>
+                                            <p>No paid</p>
+                                            <p>
+                                                <RxCross2 className=' bg-red text-white '/>
+                                            </p>
+                                            
+                                        </div> 
+                                    
+                                    </div> */   
+                                )
+                            })
+                            
                             )
-                        })
-                        
+                        : (
+                            <div className='text-richblack-25 text-center mt-[170px]'>No Due Member</div>
                         )
-                    : (
-                        <div className='text-richblack-25 text-center mt-[170px]'>No Due Member</div>
-                    )
-                }
-            </div>
+                    }
+                </div>
+                )
+            }
+            
 
         </div>
     </div>
