@@ -18,6 +18,7 @@ const LoginForm = () => {
     )
 
     const [showPassword, setShowPassword] = useState(false);
+    const [errors, setErrors] = useState({});
 
     const {email, password} = formData;
 
@@ -32,9 +33,32 @@ const LoginForm = () => {
 
     function submitHandler(event){
         event.preventDefault();
-        dispatch(login(email, password, navigate))
-       
+
+        const validationErrors = validateForm(formData);
+
+        if (Object.keys(validationErrors).length === 0) {
+            dispatch(login(email, password, navigate))
+        } else {
+            setErrors(validationErrors);
+        }
+        
     }
+
+    const validateForm = (data) => {
+        let errors = {};
+    
+        if (!data.email.trim()) {
+          errors.email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+          errors.email = 'Email is invalid';
+        }
+    
+        if (!data.password.trim()) {
+          errors.password = 'Password is required';
+        }
+    
+        return errors;
+      };
 
   return (
     <form onSubmit={submitHandler} className='mt-3 flex flex-col gap-3'>
@@ -50,6 +74,7 @@ const LoginForm = () => {
                 onChange={changeHandler}
                 placeholder='Enter Email'
             />
+            {errors.email && <span>{errors.email}</span>}
         </label>
 
         <label>
@@ -75,6 +100,7 @@ const LoginForm = () => {
                     }
                 </span>
             </div>
+            {errors.password && <span>{errors.password}</span>}
             
             <div className='text-blue-200 text-right'>
                 <NavLink to='/forgot-password'>Forgot Password</NavLink>
