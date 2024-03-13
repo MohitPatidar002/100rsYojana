@@ -13,7 +13,7 @@ const {auth} = require('../middlewares/Auth.middleware.js');
 router.post('/capturePayment', auth, capturePayment);
 
 // verify signature
-router.post('/verifyPayment', auth, verifyPayment);
+router.put('/verifyPayment', auth, verifyPayment);
 
 // send success email
 router.post('/sendSuccessEmail', auth, sendSuccessEmail)

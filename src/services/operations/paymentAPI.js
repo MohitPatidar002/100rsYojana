@@ -118,7 +118,7 @@ async function verifyPayment(bodyData, token){
     try{
         // console.log("bodyData :", bodyData);
         // console.log("token in verify payment :", token)
-        const response = await apiConnector("POST", VERIFY_PAYMENT_API, bodyData,
+        const response = await apiConnector("PUT", VERIFY_PAYMENT_API, bodyData,
         {
             Authorization: `Bearer ${token}`,
         }
