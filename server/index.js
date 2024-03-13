@@ -29,7 +29,7 @@ app.use(fileUpload({
     tempFileDir : '/tmp'
 }))
 app.use(cors({
-    origin: "*",
+    origin: '*',
     credentials: true
 }))
 
