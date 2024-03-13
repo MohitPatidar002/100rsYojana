@@ -49,7 +49,7 @@ export async function payNow(token, userDetail) {
           }
         )
 
-        console.log("order res :", orderResponse)
+        // console.log("order res :", orderResponse)
         let options = {
             key: process.env.RAZORPAY_KEY,
             amount: orderResponse.data.paymentResponse.amount,
@@ -73,7 +73,7 @@ export async function payNow(token, userDetail) {
         }
 
         const paymentObject = new window.Razorpay(options)
-        console.log("options created", paymentObject)
+        // console.log("options created", paymentObject)
         paymentObject.open()
         paymentObject.on("payment.failed", function (response) {
         toast.error("Oops! Payment Failed.")
@@ -116,18 +116,18 @@ async function verifyPayment(bodyData, token){
     const toastId = toast.loading("Verifying Payment...");
     
     try{
-        console.log("bodyData :", bodyData); 
+        // console.log("bodyData :", bodyData); 
         // console.log("token in verify payment :", token)
         const response = await apiConnector("PUT", VERIFY_PAYMENT_API, bodyData,
         {
             Authorization: `Bearer ${token}`,
         }
         )
-
+    // console.log("success resp", response)
         if(!response.data.success){
             throw new Error(response.data.message)
         }
-
+    // console.log("after payment success")
         toast.success("Payment Successful, ThankYou")
     }
     catch(error){
@@ -152,7 +152,7 @@ export async function userPaymentDetail(token) {
             }
             )
 
-            console.log("user payment detail action : ",response);
+            // console.log("user payment detail action : ",response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);

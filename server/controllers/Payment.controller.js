@@ -79,17 +79,17 @@ exports.verifyPayment = async (req, res) => {
 
         // console.log("After generate the signature")
 
-        console.log("Expected signature ", expectedSignature)
+        // console.log("Expected signature ", expectedSignature)
 
         if (expectedSignature === razorpay_signature) {
         // user ka account update karo
         
             // write additional logic here......
             const userDetail = await User.findById(userId);
-            console.log("user Detail after razorpay signature matched", userDetail);
+            // console.log("user Detail after razorpay signature matched", userDetail);
 
             const paymentDetail = userDetail.payment;
-            console.log("payment -> ", paymentDetail);
+            // console.log("payment -> ", paymentDetail);
 
             const payment = await Payment.findById(paymentDetail);
           
@@ -100,29 +100,37 @@ exports.verifyPayment = async (req, res) => {
                 totalMonths = 1;
                 totalYears = payment.totalYears + 1;
             }
-
-            console.log("total money", totalMoney)
-            console.log("payment details new", payment)
-
-            const updated = await Payment.findOneAndUpdate(
-            {_id : paymentDetail},
-            {
-                $set: {
-                    paymentStatus: paymentStatus,
-                    totalMonths: totalMonths,
-                    totalYears: totalYears,
-                    totalMoney: totalMoney,
-                }
-            },
-            { new: true }
-            );
-            // console.log("updated data ", updated)
-
-           return res.status(200).json({
-            success:true,
-            message: "Payment Successful",
-            data: updated
-           })
+            else{
+              totalYears = payment.totalYears ;
+            }
+            
+            try {
+              const updated = await Payment.findByIdAndUpdate(
+                  paymentDetail,
+                  {
+                      $set: {
+                          paymentStatus: paymentStatus,
+                          totalMonths: totalMonths,
+                          totalYears: totalYears,
+                          totalMoney: totalMoney,
+                      }
+                  },
+                  { new: true }
+              );
+              // console.log('Documents updated successfully:', updated);
+              return res.status(200).json({
+                success:true,
+                message: "Payment Successful",
+                data: updated
+                
+              })
+              // Handle successful update
+            } catch (err) {
+              console.error('Error updating documents:', err);
+              // Handle error
+            }
+            
+           
         }
         else{
             return res.status(403).json({
@@ -130,6 +138,8 @@ exports.verifyPayment = async (req, res) => {
                 message: "razorpay signature verification failed"
             })
         }
+
+        
     } 
     catch (error) {
         return res.json({
