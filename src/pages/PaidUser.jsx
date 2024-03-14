@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 const PaidUser = () => {
 
     const [paidUser, setPaidUser] = useState([]);
-    const {loading} = useSelector((state) => state.auth)
+    const  [loading, setLoading] = useState(true);
     
 
     async function fetchData(){
@@ -23,7 +23,7 @@ const PaidUser = () => {
             const paidUserData = data.filter((user) => user.payment.paymentStatus === true);
                 
             setPaidUser(paidUserData);
-              
+            setLoading(false)
           
         }
         catch(error){
@@ -118,7 +118,7 @@ const PaidUser = () => {
 
                     {
                         loading ? (
-                            <div>
+                            <div className='w-[100%] h-full flex justify-center items-center'>
                                 <Spinner/>
                             </div>
                         ) : 

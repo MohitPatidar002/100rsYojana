@@ -10,8 +10,8 @@ import Spinner from './Spinner'
 const PaymentPage = () => {
 
     const {user} = useSelector( (state) => state.profile);
-    const {token, loading} = useSelector((state) => state.auth);
-    
+    const {token} = useSelector((state) => state.auth);
+    const  [loading, setLoading] = useState(true);
     const [payment, setPayment] = useState("");
 
     // get current month
@@ -28,6 +28,7 @@ const PaymentPage = () => {
             const response = await userPaymentDetail(token);
             // console.log("payment response in paymentPage", response)
             setPayment(response)
+            setLoading(false)
         }
         catch(error){
             console.log("error in payment page")
@@ -53,7 +54,7 @@ const PaymentPage = () => {
 
             {
                 loading ? (
-                    <div>
+                    <div className='w-[100%] h-full flex justify-center items-center'>
                         <Spinner/>
                     </div>
                 ) : 
