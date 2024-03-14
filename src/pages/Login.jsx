@@ -2,9 +2,12 @@ import React from 'react'
 import Template from '../components/core/Auth/Template'
 import loginImg from '../assets/images/login.png'
 
+
 const Login = () => {
+
+
   return (
-    <div>
+    <div>  
       <Template 
         title="Welcome Back"
         desc1=""
@@ -13,6 +16,7 @@ const Login = () => {
         formtype="login"
         
       />
+      
     </div>
   )
 }

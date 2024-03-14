@@ -17,13 +17,40 @@ import PaidUser from "./pages/PaidUser";
 import UnpaidUser from './pages/UnpaidUser';
 import Error from './pages/Error.jsx'
 import ContactUs from "./pages/ContactUs.jsx";
-
+import { useEffect, useState } from "react";
+import Spinner from "./pages/Spinner.jsx";
+import logo from './assets/images/100रु वाली योजना.png'
+import { useSelector } from "react-redux";
 
 
 function App() {
+
+  const [loading, setLoading] = useState(true);
+  const {token} = useSelector((state) => state.auth)
+
+  useEffect(() => {
+  
+    // Simulating loading delay with setTimeout
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Simulate a 2 second loading time
+
+    // Clean up the timeout to avoid memory leaks
+    return () => clearTimeout(timeout);
+  
+  }, []); // Run only once when component mounts
+
   return (
     <div className="w-[100%] min-h-screen flex flex-col font-inter bg-richblack-900 overflow-x-hidden">
 
+      {loading ? (
+        <div className="w-full min-h-screen flex items-center justify-center flex-col gap-2">
+          {/* Customize your loader here */}
+          <img src={logo}/>
+          <Spinner/>
+        </div>
+      ) : (
+        <div>
       <Navbar/>
       
       <Routes>
@@ -156,6 +183,10 @@ function App() {
 
 
       <Footer/>
+      </div>
+      )
+      }
+      
     </div>
   );
 
