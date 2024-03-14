@@ -60,7 +60,7 @@ export const signup = (name, email, password, contactNumber, otp, navigate) => {
         }
         catch(error){
             console.log('Error in Sign Up: ', error);
-            toast.error("You can't SignUp because You are not Member of Yojana")
+            toast.error("Signup Failed, Please Try Again")
         }
         dispatch(setLoading(false))
     }
