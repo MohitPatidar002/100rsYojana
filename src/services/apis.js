@@ -25,3 +25,7 @@ export const paymentEndPoints = {
 export const getAllUser = {
     GET_ALL_USER_DETAIL_API : BASE_URL + '/profile/getAllUserData'
 }
+
+export const contactEndPoint = {
+    SEND_CONTACT_INFO : BASE_URL + '/contact/sendContactInfo'
+}

@@ -1,4 +1,5 @@
 const User = require('../models/user.model.js');
+const mailSender = require('../utils/mailSender.js');
 require('dotenv').config();
 const {uploadFileOnCloud} = require('../utils/uploadFileOnCloud.js');
 
@@ -10,7 +11,7 @@ exports.updateProfile = async (req, res) => {
 
         // validation
         if(!name || !email || !contactNumber){
-            return res.status(200).json({
+            return res.status(400).json({
                 success: false,
                 message: "All fields required"
             }) 
@@ -90,6 +91,53 @@ exports.updateUserImage = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: 'Unable to update image'
+        })
+    }
+}
+
+
+// send contact info
+exports.sendContactInfo = async (req, res) => {
+    try{
+        const {name, email, contactNumber, message} = req.body;
+
+        // const userId = req.user.id;
+        // validation
+        if(!name || !email || !contactNumber || !message){
+            return res.status(400).json({
+                success: false,
+                message: "All fields required"
+            }) 
+        }
+
+        try{
+            const messageBody = `Name: ${name}<br>Email: ${email}<br>PhoneNo: ${contactNumber}<br>Message: ${message}`;
+
+
+            await mailSender(
+                "100rsyojana@gmail.com",
+                "Contact Info from 100rs Yojan",
+                messageBody
+            );
+
+            return res.json({
+                success: true,
+                message: "data sended"
+            })
+        }
+        catch(err){
+            console.log("error in sending mail", err)
+            return res
+            .status(400)
+            .json({ success: false, message: "Could not send email" })
+        }
+
+        
+    }
+    catch(err){
+        return res.json({
+            success: false,
+            message: "Failed to send Contact Info"
         })
     }
 }

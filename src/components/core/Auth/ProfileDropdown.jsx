@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import { FaCheckCircle } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import { FaCircleUser } from "react-icons/fa6";
+import { MdOutlineSupportAgent } from "react-icons/md";
 
 import useOnClickOutside from "../../../hooks/useOnClickOutside"
 import ConfirmationModal from "../Common/ConfirmationModal"
@@ -56,6 +57,13 @@ export default function ProfileDropdown() {
             <div className="flex w-full items-center gap-x-2 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-richblack-700 hover:text-richblack-25">
               <IoCloseSharp className="text-lg bg-richblack-100 text-black rounded-full" />
               Unpaid Member
+            </div>
+          </Link>
+
+          <Link to="/user/contact" onClick={() => setOpen(false)}>
+            <div className="flex w-full items-center gap-x-2 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-richblack-700 hover:text-richblack-25">
+              <MdOutlineSupportAgent className="text-lg bg-richblack-100 text-black rounded-full" />
+              Contact Us
             </div>
           </Link>
 

@@ -7,7 +7,7 @@ exports.auth = async (req, res, next) => {
         // get the token from req.cookies
         // console.log("token for caputer payment")
         const token = req.cookies.token || req.body.token || req.header("Authorization").replace("Bearer ", "");
-        // console.log("Auth token for payment", token)
+        // console.log("Auth token for contactInfo", token)
         if(!token){
             return res.status(401).json({
                 success: false,

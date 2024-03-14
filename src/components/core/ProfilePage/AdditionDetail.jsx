@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAdditionalInfo } from '../../../services/operations/profileAPI';
+import { LiaEdit } from "react-icons/lia";
 
 
 const AdditionDetail = () => {
@@ -49,8 +50,9 @@ const AdditionDetail = () => {
                   ) 
                   : (
                     <button type='submit' onClick={()=>setIsEdit((prev) => !prev)}
-                      className='text-richblack-900 bg-yellow-50  font-semibold flex gap-1 md:gap-3 items-center px-2 py-1 md:px-4 md:py-2 rounded-md'>
+                      className='text-richblack-900 bg-yellow-50  font-semibold flex gap-1 md:gap-2 items-center px-2 py-1 md:px-4 md:py-2 rounded-md'>
                       <p>Edit</p>
+                      <LiaEdit className='text-xl'/>
                     </button>
                   )
                 }

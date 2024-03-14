@@ -43,12 +43,14 @@ cloudinaryConnect();
 const userRoute = require('./routes/user.route.js');
 const profileRoute = require('./routes/profile.route.js');
 const paymentRoute = require('./routes/payment.route.js');
+const contactRoute = require('./routes/contact.route.js');
 
 
 // mounting
 app.use('/api/v1/auth', userRoute);
 app.use('/api/v1/profile', profileRoute);
 app.use('/api/v1/payment', paymentRoute);
+app.use('/api/v1/contact', contactRoute);
 
 
 

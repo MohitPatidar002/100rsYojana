@@ -16,6 +16,7 @@ import PaymentPage from "./pages/PaymentPage";
 import PaidUser from "./pages/PaidUser";
 import UnpaidUser from './pages/UnpaidUser';
 import Error from './pages/Error.jsx'
+import ContactUs from "./pages/ContactUs.jsx";
 
 
 
@@ -131,6 +132,15 @@ function App() {
           element={
             <PrivateRoute>
               <UnpaidUser/>
+            </PrivateRoute>
+          } 
+        />
+
+        <Route 
+          path="/user/contact" 
+          element={
+            <PrivateRoute>
+              <ContactUs/>
             </PrivateRoute>
           } 
         />
