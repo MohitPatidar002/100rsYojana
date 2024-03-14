@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Signup from './pages/Signup'
@@ -26,7 +26,7 @@ import { useSelector } from "react-redux";
 function App() {
 
   const [loading, setLoading] = useState(true);
-  const {token} = useSelector((state) => state.auth)
+  const location = useLocation();
 
   useEffect(() => {
   
@@ -46,8 +46,19 @@ function App() {
       {loading ? (
         <div className="w-full min-h-screen flex items-center justify-center flex-col gap-2">
           {/* Customize your loader here */}
-          <img src={logo}/>
-          <Spinner/>
+          {
+            location.pathname == '/' ? 
+            (
+              <>
+              <img src={logo}/>
+              <Spinner/>
+              </>
+            ) :
+            (
+              <Spinner/>
+            )
+          }
+          
         </div>
       ) : (
         <div>
