@@ -42,7 +42,7 @@ const DisplayPicture = () => {
   return (
     <div>
       <div className='flex flex-row items-center bg-richblack-800 px-5 py-3 rounded-md justify-between'>
-            <img src={user?.image} alt="Profile" className='aspect-square w-[30%] md:w-[15%] rounded-full '/>
+            <img src={user?.image} alt="Profile" className='aspect-square w-[30%] md:w-[15%] rounded-full object-cover'/>
 
             
             <div className='flex gap-3'>
