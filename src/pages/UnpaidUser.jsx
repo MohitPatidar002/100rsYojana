@@ -36,7 +36,7 @@ const PaidUser = () => {
 
   return (
     <div>
-        <div className='w-11/12 md:w-6/12 mx-auto justify-center mt-10  overflow-hidden mb-12'>
+        <div className='w-11/12 md:w-6/12 mx-auto justify-center mt-10  overflow-hidden mb-20'>
 
             <h1 className='text-3xl text-richblack-5 font-semibold mb-10'>Unpaid Member</h1>
 
