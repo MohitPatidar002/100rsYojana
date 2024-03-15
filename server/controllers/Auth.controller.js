@@ -83,8 +83,7 @@ exports.signup = async (req,res) => {
             email,
             contactNumber,
             password,
-            otp,
-            image,
+            otp
         } = req.body;
 
         // validation
@@ -94,6 +93,7 @@ exports.signup = async (req,res) => {
                 message: "All fields Required",
             })
         }
+        
 
         // special validation for YOJANA
         // const validRes = validEmail(email);
@@ -119,11 +119,11 @@ exports.signup = async (req,res) => {
 
 
         // check otp is valid or not 
-        const recentOTP = await Otp.find({email}).sort({createdAt:-1}).limit(1);
+        const recentOTP = await Otp.find({ email }).sort({ createdAt: -1 }).limit(1)
 
-        // console.log(recentOTP);
+        // console.log("check recent Otp", recentOTP);
 
-        if(recentOTP.length == 0){
+        if(recentOTP.length === 0){
             return res.status(400).json({
                 success: false,
                 message: "OTP not found",
