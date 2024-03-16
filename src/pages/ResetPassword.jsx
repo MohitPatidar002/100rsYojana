@@ -77,7 +77,7 @@ const ResetPassword = () => {
                                 </div>
                             </label>
 
-                            <label>
+                            <label className='mt-6'>
                                 <p>Confirm New Password <sup>*</sup></p>
                                 <div className='flex bg-richblack-700 text-richblack-5           border-none  rounded-md px-[5px] py-[2px] border-2'>
                                     <input 
