@@ -89,7 +89,7 @@ const PaymentPage = () => {
 
                         <div className='flex justify-between items-center border-b-[1px] border-richblack-600 p-2'>
                             <p>Total Time Duration</p>
-                            <p className='font-semibold'>{payment.totalMonths} Months {payment.totalYears} Year</p>
+                            <p className='font-semibold'>{payment.totalYears}.{payment.totalMonths} Year</p>
                             
                         </div>
 
