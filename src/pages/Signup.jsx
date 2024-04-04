@@ -4,7 +4,7 @@ import signupImg from '../assets/images/signup.gif'
 
 const Signup = () => {
   return (
-    <div>
+    <div className='flex justify-center items-center w-[100%] h-[calc(100vh-3.5rem)]'>
       <Template
       title="Signup Here"
       desc1=""

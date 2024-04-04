@@ -7,7 +7,7 @@ const Login = () => {
 
 
   return (
-    <div>  
+    <div className='flex justify-center items-center w-[100%] h-[calc(100vh-3.5rem)]'>  
       <Template 
         title="Welcome Back"
         desc1=""
