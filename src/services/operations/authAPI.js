@@ -60,7 +60,7 @@ export const signup = (name, email, password, contactNumber, otp, navigate) => {
         }
         catch(error){
             console.log('Error in Sign Up: ', error);
-            toast.error("Signup Failed, Please Try Again")
+            toast.error(error.response?.data?.message)
         }
         dispatch(setLoading(false))
     }
@@ -98,8 +98,8 @@ export const login = (email, password, navigate) => {
             navigate('/home')
         }
         catch(error){
-            console.log('Login failed')
-            toast.error("Email or Password is Incorrect")
+            console.log('Login failed', error)
+            toast.error(error.response?.data?.message)
         }
 
         dispatch(setLoading(false))

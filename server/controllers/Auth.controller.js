@@ -158,7 +158,7 @@ exports.signup = async (req,res) => {
         // return res
         return res.status(200).json({
             success: true,
-            message: "User Created Successfully",
+            message: "Signup Successfully",
             user
         })
     }
@@ -191,7 +191,7 @@ exports.login = async (req, res) => {
         if(!user){
             return res.status(400).json({
                 success: false,
-                message: "You can't login, please signup first"
+                message: "Email is Incorrect"
             }) 
         }
 
