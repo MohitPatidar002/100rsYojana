@@ -23,7 +23,7 @@ const Navbar = () => {
 
 
   return (
-    <div className='h-14 border-b-[1px] border-richblack-700 items-center justify-center'>
+    <div className='h-14 border-b-[1px] bg-richblack-900 border-richblack-700 items-center justify-center'>
       <div className='flex w-11/12 items-center justify-between mx-auto h-full'>
         
         <div >

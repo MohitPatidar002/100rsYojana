@@ -5,7 +5,9 @@ const Vision = () => {
     <div>
      
         <div>
-            <div className='w-11/12 md:w-9/12 mx-auto flex flex-col md:flex-row items-center justify-center gap-16 md:gap-10 text-white my-28 md:my-40'>
+            <div className='w-11/12 md:w-9/12 mx-auto flex flex-col gap-28 md:20 text-white my-28 md:mb-40 md:mt-28'>
+                <h2 className='text-4xl text-center'>Rules And Regulations</h2>
+                <div className='flex flex-col md:flex-row items-center justify-center gap-16 md:gap-10'>
                 {/* card 1 */}
                 <div className='w-200px border-[1px] border-richblack-700 rotate-12 md:-mr-16 bg-richblack-900'>
                     <div className='h-16 flex items-center px-5 bg-indigo font-semibold text-black'>
@@ -35,6 +37,7 @@ const Vision = () => {
                     <div className='p-5'>
                     अगर कोई व्यक्ति इस योजना को बंद करना चाहे तो उस व्यक्ति को उसके द्वारा जमा की गई कुल राशि मे से कुछ भी वापस नही किया जाएगा ।
                     </div>
+                </div>
                 </div>
 
             </div>

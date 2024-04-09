@@ -7,6 +7,7 @@ import Collections from "../components/core/HomePage/Collections";
 import Vision from "../components/core/HomePage/Vision";
 import { useSelector } from "react-redux";
 import ImageSlider from "../components/core/HomePage/ImageSlider";
+import PaymentSteps from "../components/core/HomePage/PaymentSteps";
 
 const Home = () => {
 
@@ -45,7 +46,7 @@ const Home = () => {
         <Collections/>
 
         {/* Section 3 */}
-
+        <PaymentSteps/>
 
         {/* Section 4 */}
         <Vision/>
