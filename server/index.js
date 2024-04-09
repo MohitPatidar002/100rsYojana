@@ -37,7 +37,7 @@ app.use(cors({
 cloudinaryConnect();
 
 // data reset while month change
-// resetDataForNextMonth();
+resetDataForNextMonth();
 
 // routes
 const userRoute = require('./routes/user.route.js');
