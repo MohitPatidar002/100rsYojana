@@ -45,9 +45,12 @@ const Home = () => {
         <Collections/>
 
         {/* Section 3 */}
-        <Vision/>
+
 
         {/* Section 4 */}
+        <Vision/>
+
+        {/* Section 5 */}
         <ImageSlider/>
 
         {/* Created By */} 
